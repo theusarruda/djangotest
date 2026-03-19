@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meuprojetodjango</title>
+</head>
+<body>
+    <h1>Pessoas cadastradas</h1>
+    <table border="1">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th cosplan="2">Opções</th>
+            <th cosplan="1">Excluir</th>
+        </tr>
+        {% for pessoa in pessoas %}
+        <tr>
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.email }}</td>
+            <td><a href="{% url 'atualizar_pessoa' pessoa.pk %}">Editar</a></td>
+            <td><a href="{% url 'confirmar_delete' pessoa.pk %}">Excluir</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'criar_pessoa' %}" >Cadastrar Nova Pessoa</a>
+</body>     
